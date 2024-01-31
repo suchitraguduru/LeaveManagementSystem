@@ -17,16 +17,12 @@ public class LeaveDto {
 	private int id;
     private int userId;
     
-    @NotEmpty
     private String leaveType;
     
-    @NotNull
     private Date startDate;
     
-    @NotNull
     private Date endDate;
     
-    @NotEmpty
     private String reason;
     private String status;
     private String comment;

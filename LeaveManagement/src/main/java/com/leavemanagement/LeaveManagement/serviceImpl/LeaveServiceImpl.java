@@ -51,7 +51,7 @@ public class LeaveServiceImpl implements LeaveService{
 
 	//Service method to get leaves by employee id
 	@Override
-	public List<LeaveDto> getLeavesByEmployeeId(Integer userId) {
+	public List<LeaveDto> getLeavesByEmployeeId(Integer userId) throws ResourceNotFoundException{
 		logger.info("Entering into  getleavesbyemployeeid method");
 		userRepo.findById(userId).orElseThrow(()->new ResourceNotFoundException("user","user id",userId));
 		List<Leave> leaves = this.leaveRepo.findByUserId(userId);

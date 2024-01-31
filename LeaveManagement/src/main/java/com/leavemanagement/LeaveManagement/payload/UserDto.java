@@ -18,12 +18,7 @@ import lombok.Setter;
 @Getter
 @Setter
 public class UserDto {
-	@NotNull
-	@Email(message="Email address is not valid")
 	private String email;
-	
-	@NotEmpty
-	@Size(min=6,max=12,message="Password must be min of 3 chars and max of 10 chars")
 	private String password;
 	
 	@Enumerated(EnumType.STRING)
