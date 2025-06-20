@@ -128,6 +128,7 @@
 				</configuration>
 			</plugin>
 		</plugins>
+		<finalName>leavemanagement-github-actions</finalName>
 	</build>
 
 </project>
