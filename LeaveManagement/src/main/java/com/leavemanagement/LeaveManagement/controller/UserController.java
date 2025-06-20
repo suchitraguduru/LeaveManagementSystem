@@ -68,7 +68,7 @@ public class UserController {
 					error.append("Password should not be empty");
 				}
 				Optional<Users> user = userRepo.findByEmail(userDto.getEmail());
-				if(user!=null) {
+				if(user.isPresent()) {
 					error.append("Manager already exists");
 				}
 				if(!error.toString().equals("Field ")) {
@@ -118,7 +118,7 @@ public class UserController {
 				}
 
 				Optional<Users> user = userRepo.findByEmail(userDto.getEmail());
-				if(user!=null) {
+				if(user.isPresent()) {
 					error.append("Employee already exists");
 				}
 				if(!error.toString().equals("Field ")) {
@@ -195,4 +195,49 @@ public class UserController {
 		}
 		
 	}
+//	@GetMapping("/getusers")
+//	public ResponseEntity<BackendResponse> getUsers(){
+//		logger.info("Received request to /api/auth/getusers");
+//		BackendResponse backendResponse = new BackendResponse();
+//
+//		try {
+//			StringBuilder error = new StringBuilder("Field ");
+//
+//			if(userDto.getEmail()==null) {
+//				error.append("Email is not mentioned");
+//			}
+//			if(userDto.getEmail().isEmpty()) {
+//				error.append("Email should not be empty");
+//			}
+//			logger.info("Password is {}",userDto.getPassword());
+//			if(userDto.getPassword()==null) {
+//				error.append("Password is not mentioned");
+//			}
+//			if(userDto.getPassword().isEmpty()) {
+//				error.append("Password should not be empty");
+//			}
+//
+//			Optional<Users> user = userRepo.findByEmail(userDto.getEmail());
+//			if(user!=null) {
+//				error.append("Employee already exists");
+//			}
+//			if(!error.toString().equals("Field ")) {
+//				backendResponse.setMessage(error.toString());
+//				backendResponse.setStatus("fail");
+//				backendResponse.setData("false");
+//				return new ResponseEntity<>(backendResponse,HttpStatus.BAD_REQUEST);
+//			}
+//			UserDto savedUserDto = this.userService.createEmployee(userDto);
+//			backendResponse.setMessage("Employee created Succesfully");
+//			backendResponse.setStatus("Pass");
+//			backendResponse.setData("Saved");
+//			return new ResponseEntity<>(backendResponse,HttpStatus.CREATED);
+//		}catch(Exception e) {
+//			backendResponse.setMessage("Employee with email already Exists");
+//			backendResponse.setStatus("fail");
+//			backendResponse.setData(e);
+//			return new ResponseEntity<>(backendResponse,HttpStatus.BAD_REQUEST);
+//		}
+//	}
+
 }

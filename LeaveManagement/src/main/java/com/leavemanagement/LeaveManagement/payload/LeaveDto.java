@@ -1,5 +1,6 @@
 package com.leavemanagement.LeaveManagement.payload;
 
+import java.io.Serializable;
 import java.util.Date;
 
 import jakarta.validation.constraints.NotEmpty;
@@ -13,7 +14,8 @@ import lombok.Setter;
 @AllArgsConstructor
 @Getter
 @Setter
-public class LeaveDto {
+public class LeaveDto implements Serializable {
+    private static final long serialVersionUID = 1L;
 	private int id;
     private int userId;
     
